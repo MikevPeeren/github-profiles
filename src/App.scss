@@ -1,0 +1,15 @@
+.GithubProfiles {
+	display: flex;
+	flex-direction: column;
+
+	&__header {
+		left: 0;
+		margin-left: 5em;
+		font-size: 2.5em;
+		color: white;
+		text-decoration: underline;
+		text-underline-position: under;
+		text-decoration-skip-ink: auto;
+		letter-spacing: 0.2em;
+	}
+}
