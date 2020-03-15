@@ -37,7 +37,7 @@ const SearchForm = () => {
 			<InputGroup.Append>
 				<Button
 					onClick={() => {
-						alert('aaa');
+						handleUsernameSearch();
 					}}
 				>
 					<FaSearch />
