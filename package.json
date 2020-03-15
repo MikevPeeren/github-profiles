@@ -2,6 +2,7 @@
 	"name": "github-profiles",
 	"version": "1.0.0",
 	"license": "MIT",
+	"homepage": "https://mikevpeeren.github.io/Github-Profiles",
 	"dependencies": {
 		"@testing-library/jest-dom": "^4.2.4",
 		"@testing-library/react": "^9.3.2",
@@ -24,7 +25,9 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"predeploy": "yarn build",
+		"deploy": "gh-pages -d build"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
@@ -42,6 +45,7 @@
 		]
 	},
 	"devDependencies": {
+		"gh-pages": "^2.2.0",
 		"husky": "^4.2.3",
 		"prettier": "^1.19.1",
 		"pretty-quick": "^2.0.1"

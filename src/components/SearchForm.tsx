@@ -1,5 +1,5 @@
 // React
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 // Boostrap
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -14,36 +14,42 @@ import './SearchForm.scss';
 import { FaSearch } from 'react-icons/fa';
 
 const SearchForm = () => {
+	const [warningText, setWarningText] = useState('');
 	const inputElement = useRef(null);
 
 	const handleUsernameSearch = () => {
+		setWarningText('');
 		//@ts-ignore
-		if (inputElement && inputElement.current) console.log(inputElement.current.value);
-		else {
-		} // TODO: add warning text
+		if (inputElement && inputElement.current && inputElement.current.value !== '')
+			//@ts-ignore
+			console.log(inputElement.current.value);
+		else setWarningText('Error');
 	};
 
 	return (
-		<InputGroup className="SearchForm">
-			<FormControl
-				ref={inputElement}
-				onKeyPress={(event: any) => {
-					if (event.key === 'Enter') {
-						handleUsernameSearch();
-					}
-				}}
-				placeholder="Github Username"
-			/>
-			<InputGroup.Append>
-				<Button
-					onClick={() => {
-						handleUsernameSearch();
+		<>
+			<InputGroup className="SearchForm">
+				<FormControl
+					ref={inputElement}
+					onKeyPress={(event: any) => {
+						if (event.key === 'Enter') {
+							handleUsernameSearch();
+						}
 					}}
-				>
-					<FaSearch />
-				</Button>
-			</InputGroup.Append>
-		</InputGroup>
+					placeholder="Github Username"
+				/>
+				<InputGroup.Append>
+					<Button
+						onClick={() => {
+							handleUsernameSearch();
+						}}
+					>
+						<FaSearch />
+					</Button>
+				</InputGroup.Append>
+			</InputGroup>
+			{warningText && <div>{warningText}</div>}
+		</>
 	);
 };
 
