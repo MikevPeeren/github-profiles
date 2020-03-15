@@ -1,3 +1,5 @@
+![Build and Deploy](https://github.com/MikevPeeren/Github-Profiles/workflows/Build%20and%20Deploy/badge.svg)
+
 # GitHub Profiles
 
 Search through the GitHub API to retrieve user information when a valid username is given. It should display avatar, username, followers count, repository count, top 4 repositories based on forks and stars.
