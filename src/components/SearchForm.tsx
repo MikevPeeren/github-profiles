@@ -10,7 +10,6 @@ import Button from 'react-bootstrap/Button';
 import './SearchForm.scss';
 
 // Icons
-
 import { FaSearch } from 'react-icons/fa';
 
 const SearchForm = () => {

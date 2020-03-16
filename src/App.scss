@@ -1,8 +1,10 @@
 .GithubProfiles {
 	display: flex;
 	flex-direction: column;
+	width: 50%;
 	margin-left: 5em;
 	margin-top: 1em;
+	margin-bottom: 1em;
 
 	&__header {
 		left: 0;
@@ -13,4 +15,26 @@
 		text-decoration-skip-ink: auto;
 		letter-spacing: 0.2em;
 	}
+}
+
+.GithubProjectContainer {
+	margin-left: 5em;
+	width: 50%;
+	display: flex;
+	justify-content: start;
+	flex-direction: column;
+}
+
+.one {
+	display: flex;
+	justify-content: space-between;
+}
+.two {
+	display: flex;
+	justify-content: space-between;
+}
+
+.header {
+	display: flex;
+	flex-direction: row;
 }
