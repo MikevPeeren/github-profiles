@@ -1,5 +1,5 @@
 // React
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
 // Boostrap
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -12,18 +12,29 @@ import './SearchForm.scss';
 // Icons
 import { FaSearch } from 'react-icons/fa';
 
-const SearchForm = () => {
+interface SearchFormProps {
+	setNewGithubUser: Function;
+	errorText: string;
+}
+
+const SearchForm: React.FC<SearchFormProps> = (props) => {
 	const [warningText, setWarningText] = useState('');
 	const inputElement = useRef(null);
+
+	const { setNewGithubUser } = props;
 
 	const handleUsernameSearch = () => {
 		setWarningText('');
 		//@ts-ignore
 		if (inputElement && inputElement.current && inputElement.current.value !== '')
 			//@ts-ignore
-			console.log(inputElement.current.value);
+			setNewGithubUser(inputElement.current.value);
 		else setWarningText('Error');
 	};
+
+	useEffect(() => {
+		setWarningText(props.errorText);
+	}, [props.errorText]);
 
 	return (
 		<>
@@ -47,7 +58,7 @@ const SearchForm = () => {
 					</Button>
 				</InputGroup.Append>
 			</InputGroup>
-			{warningText && <div>{warningText}</div>}
+			{warningText && <span className="SearchForm__WarningText">{warningText}</span>}
 		</>
 	);
 };

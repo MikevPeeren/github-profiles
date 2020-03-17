@@ -1,3 +1,11 @@
 .SearchForm {
 	width: 18em;
+
+	&__WarningText {
+		color: white;
+		font-size: 1.2em;
+		margin-top: 1em;
+		font-weight: bold;
+		letter-spacing: 0.2em;
+	}
 }
