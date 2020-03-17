@@ -17,24 +17,53 @@
 	}
 }
 
-.GithubProjectContainer {
+.GithubContainer {
 	margin-left: 5em;
-	width: 50%;
 	display: flex;
 	justify-content: start;
 	flex-direction: column;
-}
 
-.one {
-	display: flex;
-	justify-content: space-between;
-}
-.two {
-	display: flex;
-	justify-content: space-between;
-}
+	&__Wrapper {
+		display: flex;
+		flex-direction: row;
+	}
 
-.header {
-	display: flex;
-	flex-direction: row;
+	&__Avatar {
+		display: flex;
+		flex-direction: row;
+
+		.card {
+			max-height: 18em;
+			max-width: 18em;
+			overflow: scroll;
+			word-wrap: break-word;
+			box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+		}
+
+		margin-right: 2em;
+	}
+
+	&__Repositories {
+		display: flex;
+		flex-direction: column;
+
+		&--firstRow {
+			display: flex;
+			justify-content: space-between;
+
+			.card {
+				max-width: 25em;
+				box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+			}
+		}
+		&--secondRow {
+			display: flex;
+			justify-content: space-between;
+
+			.card {
+				max-width: 25em;
+				box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+			}
+		}
+	}
 }
