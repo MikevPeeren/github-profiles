@@ -25,8 +25,15 @@ export const searchForGithubProfile = async (inputFieldGitHubUser: string) => {
 	const GET_USER = `
     {
         user(login: "${inputFieldGitHubUser}" ) {
+			login
             avatarUrl
-            bio
+			bio
+			repositories {
+				totalCount
+			}
+			watching {
+				totalCount
+			}
         }
     }
     `;

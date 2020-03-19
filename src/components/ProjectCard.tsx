@@ -7,9 +7,11 @@ import Card from 'react-bootstrap/Card';
 // CSS
 import './ProjectCard.scss';
 
-const ProjectCard = () => {
+interface ProjectCardProps {}
+
+const ProjectCard: React.FC<ProjectCardProps> = (props) => {
 	return (
-		<Card>
+		<Card className="ProjectCard">
 			<Card.Body>
 				<Card.Title>Card Title</Card.Title>
 				<Card.Text>

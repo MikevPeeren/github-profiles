@@ -10,15 +10,32 @@ import { GITHUB_PROFILE_HEADER } from '../constants/general';
 // Components
 import SearchForm from './SearchForm';
 import ProjectCard from './ProjectCard';
+import AvatarCard from './AvatarCard';
 
+// Api
 import { searchForGithubProfile } from '../api/GithubApi';
 
 const GithubProfile = () => {
 	const [inputFieldGitHubUser, setInputFieldGitHubUser] = useState('');
-	const [githubUser, setGithubUser] = useState('');
+	const [githubUser, setGithubUser] = useState({
+		login: '',
+		avatarUrl: '',
+		bio: '',
+		repositories: {
+			totalCount: 0,
+		},
+		watching: {
+			totalCount: 0,
+		},
+	});
 	const [errorText, setErrorText] = useState('');
 
+	console.log(githubUser);
+
 	useEffect(() => {
+		/**
+		 * Searches through the Github GraphQL Database for the user.
+		 */
 		async function searchForGitHubUser() {
 			try {
 				const result = await searchForGithubProfile(inputFieldGitHubUser);
@@ -52,7 +69,17 @@ const GithubProfile = () => {
 			</div>
 			<div className="GithubContainer">
 				<div className="GithubContainer__Wrapper">
-					<div className="GithubContainer__Avatar">{githubUser && <ProjectCard />}</div>
+					<div className="GithubContainer__Avatar">
+						{githubUser.login && (
+							<AvatarCard
+								login={githubUser.login}
+								avatarUrl={githubUser.avatarUrl}
+								bio={githubUser.bio}
+								repositoriesCount={githubUser.repositories.totalCount}
+								watchingCount={githubUser.watching.totalCount}
+							/>
+						)}
+					</div>
 					<div className="GithubContainer__Repositories">
 						{githubUser && (
 							<>

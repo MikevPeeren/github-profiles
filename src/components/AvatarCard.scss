@@ -1,0 +1,38 @@
+.AvatarCard {
+	margin-right: 1em;
+	margin-top: 1em;
+	display: flex;
+	flex-direction: column;
+
+	&__Card {
+		&--body {
+			text-align: center;
+		}
+	}
+
+	&__Username {
+		margin-top: 1em;
+
+		color: white;
+		font-size: 1.1em;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	&__Watching {
+		color: white;
+		font-size: 1.1em;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	&__Repositories {
+		color: white;
+		font-size: 1.1em;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
