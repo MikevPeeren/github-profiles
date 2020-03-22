@@ -50,6 +50,12 @@ export const searchForGithubProfile = async (inputFieldGitHubUser: string) => {
 		});
 };
 
+/**
+ * Search through the Github GraphQL to find the top 4 repositories of a Github User.
+ *
+ * @param {string} inputFieldGitHubUser
+ * @returns {array}
+ */
 export const searchForGithubTopRepositories = async (inputFieldGitHubUser: string) => {
 	const GET_TOP_REPOSITORIES = `
 	{

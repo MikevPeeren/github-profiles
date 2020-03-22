@@ -26,15 +26,17 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = (props) => {
 	const { repository } = props;
 
-	console.log(repository);
-
 	return (
 		<Card className="ProjectCard">
 			<Card.Body>
 				<Card.Title>{repository.name}</Card.Title>
 				<Card.Subtitle className="mb-2 text-muted">
-					<GoGitBranch /> {repository.forkCount}
-					<GoStar /> {repository.stargazers?.totalCount}
+					<span>
+						<GoGitBranch /> {repository.forkCount}
+					</span>
+					<span className="ProjectCard__CardSubtitle--span">
+						<GoStar /> {repository.stargazers?.totalCount}
+					</span>
 				</Card.Subtitle>
 				<Card.Text>{repository.description}</Card.Text>
 			</Card.Body>

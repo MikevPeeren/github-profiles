@@ -47,7 +47,7 @@ const GithubProfile = () => {
 
 	useEffect(() => {
 		/**
-		 * Searches through the Github GraphQL Database for the user.
+		 * Searches through the Github GraphQL Database for the User.
 		 */
 		async function searchForGitHubUser() {
 			try {
@@ -63,6 +63,9 @@ const GithubProfile = () => {
 	}, [inputFieldGitHubUser]);
 
 	useEffect(() => {
+		/**
+		 * Searches through the Github GraphQL Database for the repositories of the User.
+		 */
 		async function searchForGithubRepositories() {
 			try {
 				const result = await searchForGithubTopRepositories(inputFieldGitHubUser);
@@ -108,6 +111,7 @@ const GithubProfile = () => {
 						)}
 					</div>
 					<div className="GithubContainer__Repositories">
+						{/* TODO: find a better way to do this. */}
 						{githubTopRepositories[0].node.id && (
 							<>
 								<div className="GithubContainer__Repositories--firstRow">
