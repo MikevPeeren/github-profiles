@@ -11,18 +11,24 @@ jobs:
         steps:
             - name: Checkout 🛎️
               uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+              with:
+                  persist-credentials: false
             - name: Set up Node
               uses: actions/setup-node@v1
               with:
                   node-version: 12.x
-            - name: Install Command
-              run: yarn install
-            - name: Run Build Command
-              run: yarn build
-            - name: Build and Deploy 🚀
+                  REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN }}
+              env:
+                  REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN }}
+            - name: Install and Build 🔧
+              run: |
+                  yarn install
+                  yarn build
+            - name: Deploy 🚀
               uses: JamesIves/github-pages-deploy-action@releases/v3
               with:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN }}
                   BRANCH: gh-pages # The branch the action should deploy to.
                   FOLDER: build # The folder the action should deploy.
               env:
