@@ -1,7 +1,7 @@
 // React
 import React from 'react';
 
-// Boostrap
+// Bootstrap
 import Card from 'react-bootstrap/Card';
 
 // CSS

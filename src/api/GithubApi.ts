@@ -49,3 +49,37 @@ export const searchForGithubProfile = async (inputFieldGitHubUser: string) => {
 			throw error;
 		});
 };
+
+export const searchForGithubTopRepositories = async (inputFieldGitHubUser: string) => {
+	const GET_TOP_REPOSITORIES = `
+	{
+		user(login: "${inputFieldGitHubUser}") {
+			repositories(orderBy: {field: CREATED_AT, direction: DESC}, first: 4) {
+				edges {
+					node {
+						id
+						name
+						description
+						url
+						forkCount
+						stargazers {
+							totalCount
+						}
+					}
+				}
+			}
+		}
+	}
+	`;
+
+	return await setupGitHubConnection()
+		.post('', { query: GET_TOP_REPOSITORIES })
+		.then((result) => {
+			if (result.data.errors) throw new Error('Invalid Query Provided.');
+			return result.data.data.user.repositories.edges;
+		})
+		.catch((error) => {
+			// Up Up and Away
+			throw error;
+		});
+};

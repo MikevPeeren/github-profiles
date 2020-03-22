@@ -1,22 +1,42 @@
 // React
 import React from 'react';
 
-// Boostrap
+// Bootstrap
 import Card from 'react-bootstrap/Card';
 
 // CSS
 import './ProjectCard.scss';
 
-interface ProjectCardProps {}
+// Icons
+import { GoGitBranch, GoStar } from 'react-icons/go';
+
+interface ProjectCardProps {
+	repository: {
+		id: string;
+		name?: string;
+		description?: string;
+		url?: string;
+		forkCount?: number;
+		stargazers?: {
+			totalCount: number;
+		};
+	};
+}
 
 const ProjectCard: React.FC<ProjectCardProps> = (props) => {
+	const { repository } = props;
+
+	console.log(repository);
+
 	return (
 		<Card className="ProjectCard">
 			<Card.Body>
-				<Card.Title>Card Title</Card.Title>
-				<Card.Text>
-					Some quick example text to build on the card title and make up the bulk of the card's content.
-				</Card.Text>
+				<Card.Title>{repository.name}</Card.Title>
+				<Card.Subtitle className="mb-2 text-muted">
+					<GoGitBranch /> {repository.forkCount}
+					<GoStar /> {repository.stargazers?.totalCount}
+				</Card.Subtitle>
+				<Card.Text>{repository.description}</Card.Text>
 			</Card.Body>
 		</Card>
 	);

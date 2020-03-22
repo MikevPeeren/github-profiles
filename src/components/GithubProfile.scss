@@ -49,20 +49,11 @@
 		&--firstRow {
 			display: flex;
 			justify-content: space-between;
-
-			.card {
-				max-width: 25em;
-				box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
-			}
 		}
+
 		&--secondRow {
 			display: flex;
 			justify-content: space-between;
-
-			.card {
-				max-width: 25em;
-				box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
-			}
 		}
 	}
 }

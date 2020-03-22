@@ -13,7 +13,7 @@ import ProjectCard from './ProjectCard';
 import AvatarCard from './AvatarCard';
 
 // Api
-import { searchForGithubProfile } from '../api/GithubApi';
+import { searchForGithubProfile, searchForGithubTopRepositories } from '../api/GithubApi';
 
 const GithubProfile = () => {
 	const [inputFieldGitHubUser, setInputFieldGitHubUser] = useState('');
@@ -28,9 +28,22 @@ const GithubProfile = () => {
 			totalCount: 0,
 		},
 	});
+	const [githubTopRepositories, setGithubTopRepositories] = useState([
+		{
+			node: {
+				id: '',
+				createdAt: '',
+				name: '',
+				description: '',
+				url: '',
+				forkCount: 0,
+				stargazers: {
+					totalCount: 0,
+				},
+			},
+		},
+	]);
 	const [errorText, setErrorText] = useState('');
-
-	console.log(githubUser);
 
 	useEffect(() => {
 		/**
@@ -47,6 +60,20 @@ const GithubProfile = () => {
 		}
 
 		if (inputFieldGitHubUser.length !== 0) searchForGitHubUser();
+	}, [inputFieldGitHubUser]);
+
+	useEffect(() => {
+		async function searchForGithubRepositories() {
+			try {
+				const result = await searchForGithubTopRepositories(inputFieldGitHubUser);
+				setGithubTopRepositories(result);
+				setErrorText('');
+			} catch (error) {
+				setErrorText(error.message);
+			}
+		}
+
+		if (inputFieldGitHubUser.length !== 0) searchForGithubRepositories();
 	}, [inputFieldGitHubUser]);
 
 	/**
@@ -81,15 +108,15 @@ const GithubProfile = () => {
 						)}
 					</div>
 					<div className="GithubContainer__Repositories">
-						{githubUser && (
+						{githubTopRepositories[0].node.id && (
 							<>
 								<div className="GithubContainer__Repositories--firstRow">
-									<ProjectCard />
-									<ProjectCard />
+									<ProjectCard repository={githubTopRepositories[0].node} />
+									<ProjectCard repository={githubTopRepositories[1].node} />
 								</div>
 								<div className="GithubContainer__Repositories--secondRow">
-									<ProjectCard />
-									<ProjectCard />
+									<ProjectCard repository={githubTopRepositories[2].node} />
+									<ProjectCard repository={githubTopRepositories[3].node} />
 								</div>
 							</>
 						)}
