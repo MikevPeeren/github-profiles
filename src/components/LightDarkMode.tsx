@@ -1,5 +1,6 @@
 // React
-import React, { useState } from 'react';
+import React from 'react';
+import { useLocalStorage } from 'beautiful-react-hooks';
 
 // CSS
 import './LightDarkMode.scss';
@@ -8,7 +9,7 @@ import './LightDarkMode.scss';
 import { GiSunflower, GiEvilMoon } from 'react-icons/gi';
 
 const LightDarkMode = () => {
-	const [lightMode, setLightMode] = useState(true);
+	const [lightMode, setLightMode] = useLocalStorage('LightMode', true);
 
 	const handleLightDarkMode = () => {
 		setLightMode(!lightMode);
