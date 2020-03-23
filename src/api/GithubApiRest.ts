@@ -13,6 +13,7 @@ export const searchForGithubProfile = async (inputFieldGitHubUser: string) => {
 	return await axios
 		.get(`${GITHUB_REST_API_USERS_URL}${inputFieldGitHubUser}`)
 		.then((result) => {
+			console.log(result);
 			if (result.data.errors) throw new Error('Invalid Query Provided.');
 			return result.data;
 		})

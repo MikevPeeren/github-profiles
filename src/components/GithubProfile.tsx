@@ -52,6 +52,7 @@ const GithubProfile = () => {
 		async function searchForGithubRepositories() {
 			try {
 				const result = await searchForGithubTopRepositories(inputFieldGitHubUser);
+				console.log(result);
 				setGithubTopRepositories(result);
 				setErrorText('');
 			} catch (error) {
@@ -94,19 +95,22 @@ const GithubProfile = () => {
 						)}
 					</div>
 					<div className="GithubContainer__Repositories">
-						{/* TODO: find a better way to do this. */}
-						{githubTopRepositories[0].id && (
-							<>
-								<div className="GithubContainer__Repositories--firstRow">
-									<ProjectCard repository={githubTopRepositories[0]} />
-									<ProjectCard repository={githubTopRepositories[1]} />
-								</div>
-								<div className="GithubContainer__Repositories--secondRow">
-									<ProjectCard repository={githubTopRepositories[2]} />
-									<ProjectCard repository={githubTopRepositories[3]} />
-								</div>
-							</>
-						)}
+						<div className="GithubContainer__Repositories--firstRow">
+							{githubTopRepositories[0] && githubTopRepositories[0].id && (
+								<ProjectCard repository={githubTopRepositories[0]} />
+							)}
+							{githubTopRepositories[1] && githubTopRepositories[1].id && (
+								<ProjectCard repository={githubTopRepositories[1]} />
+							)}
+						</div>
+						<div className="GithubContainer__Repositories--secondRow">
+							{githubTopRepositories[2] && githubTopRepositories[2].id && (
+								<ProjectCard repository={githubTopRepositories[2]} />
+							)}
+							{githubTopRepositories[3] && githubTopRepositories[3].id && (
+								<ProjectCard repository={githubTopRepositories[3]} />
+							)}
+						</div>
 					</div>
 				</div>
 			</div>
