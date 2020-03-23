@@ -50,6 +50,7 @@ const SearchForm: React.FC<SearchFormProps> = (props) => {
 				/>
 				<InputGroup.Append>
 					<Button
+						variant="light"
 						onClick={() => {
 							handleUsernameSearch();
 						}}

@@ -2,14 +2,13 @@
 	&__SearchForm {
 		display: flex;
 		flex-direction: column;
-		width: 50%;
+		width: 25%;
 		margin-left: 20em;
 		margin-bottom: 1em;
 
 		&--header {
 			left: 0;
 			font-size: 2.5em;
-			color: white;
 			text-decoration: underline;
 			text-underline-position: under;
 			text-decoration-skip-ink: auto;

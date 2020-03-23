@@ -3,9 +3,39 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-family: 'Comic Sans' !important;
-	background-color: #2a363b !important;
 }
 
-code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+$dark-color: #2a363b;
+$light-color: #eee;
+
+body.dark-mode {
+	background-color: $dark-color;
+	color: $light-color;
+
+	a {
+		color: $dark-color;
+	}
+
+	button {
+		background-color: $light-color;
+		color: $dark-color;
+	}
+
+	.card {
+		color: $dark-color;
+	}
+}
+
+body.light-mode {
+	background-color: $light-color;
+	color: $dark-color;
+
+	a {
+		color: $dark-color;
+	}
+
+	button {
+		background-color: $dark-color;
+		color: $light-color;
+	}
 }

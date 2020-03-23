@@ -13,6 +13,11 @@ const LightDarkMode = () => {
 
 	const handleLightDarkMode = () => {
 		setLightMode(!lightMode);
+		const body = document.body;
+		const currentClass = body && body.className;
+		if (body && body.className) {
+			body.className = currentClass === 'dark-mode' ? 'light-mode' : 'dark-mode';
+		}
 	};
 
 	return (
