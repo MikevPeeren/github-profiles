@@ -13,12 +13,10 @@ export const searchForGithubProfile = async (inputFieldGitHubUser: string) => {
 	return await axios
 		.get(`${GITHUB_REST_API_USERS_URL}${inputFieldGitHubUser}`)
 		.then((result) => {
-			console.log(result);
 			if (result.data.errors) throw new Error('Invalid Query Provided.');
 			return result.data;
 		})
 		.catch((error) => {
-			console.log(error.response);
 			// Up Up and Away
 			if (error.response && error.response.status === 404) throw new Error('User could not be Found!');
 			// Up Up and Away
@@ -48,7 +46,6 @@ export const searchForGithubTopRepositories = async (inputFieldGitHubUser: strin
 			return result.data;
 		})
 		.catch((error) => {
-			console.log(error.response);
 			// Up Up and Away
 			if (error.response && error.response.status === 404) throw new Error('User could not be Found!');
 			// Up Up and Away

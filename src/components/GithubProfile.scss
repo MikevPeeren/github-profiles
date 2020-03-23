@@ -1,57 +1,57 @@
 .GithubProfiles {
-	display: flex;
-	flex-direction: column;
-	width: 50%;
-	margin-left: 20em;
-	margin-top: 2em;
-	margin-bottom: 1em;
-
-	&__header {
-		left: 0;
-		font-size: 2.5em;
-		color: white;
-		text-decoration: underline;
-		text-underline-position: under;
-		text-decoration-skip-ink: auto;
-		letter-spacing: 0.2em;
-	}
-}
-
-.GithubContainer {
-	margin-left: 20em;
-	display: flex;
-	justify-content: flex-start;
-	flex-direction: column;
-
-	&__Wrapper {
-		display: flex;
-		flex-direction: row;
-	}
-
-	&__Avatar {
-		display: flex;
-		flex-direction: row;
-
-		.card {
-			max-width: 15em;
-			overflow: scroll;
-			word-wrap: break-word;
-			box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
-		}
-
-		margin-right: 2em;
-	}
-
-	&__Repositories {
+	&__SearchForm {
 		display: flex;
 		flex-direction: column;
+		width: 50%;
+		margin-left: 20em;
+		margin-bottom: 1em;
 
-		&--firstRow {
+		&--header {
+			left: 0;
+			font-size: 2.5em;
+			color: white;
+			text-decoration: underline;
+			text-underline-position: under;
+			text-decoration-skip-ink: auto;
+			letter-spacing: 0.2em;
+		}
+	}
+
+	&__GithubContainer {
+		margin-left: 20em;
+		display: flex;
+		justify-content: flex-start;
+		flex-direction: column;
+
+		&--Wrapper {
+			display: flex;
+			flex-direction: row;
+		}
+
+		&--Avatar {
+			display: flex;
+			flex-direction: row;
+
+			.card {
+				max-width: 15em;
+				overflow: scroll;
+				word-wrap: break-word;
+				box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+			}
+
+			margin-right: 2em;
+		}
+
+		&--Repositories {
+			display: flex;
+			flex-direction: column;
+		}
+		&--RepositoriesFirstRow {
 			display: flex;
 			justify-content: space-between;
 		}
 
-		&--secondRow {
+		&--RepositoriesSecondRow {
 			display: flex;
 			justify-content: space-between;
 		}

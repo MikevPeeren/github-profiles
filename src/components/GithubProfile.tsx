@@ -38,7 +38,6 @@ const GithubProfile = () => {
 				setGithubUser(result);
 				setErrorText('');
 			} catch (error) {
-				console.log(error);
 				setGithubUser(GITHUB_USER);
 				setErrorText('');
 				setErrorText(error.message);
@@ -55,11 +54,9 @@ const GithubProfile = () => {
 		async function searchForGithubRepositories() {
 			try {
 				const result = await searchForGithubTopRepositories(inputFieldGitHubUser);
-				console.log(result);
 				setGithubTopRepositories(result);
 				setErrorText('');
 			} catch (error) {
-				console.log(error);
 				setGithubTopRepositories(GITHUB_TOP_REPOSITORIES);
 				setErrorText('');
 				setErrorText(error.message);
@@ -80,16 +77,16 @@ const GithubProfile = () => {
 	};
 
 	return (
-		<>
-			<div className="GithubProfiles">
-				<header className="GithubProfiles__header">
+		<div className="GithubProfiles">
+			<div className="GithubProfiles__SearchForm">
+				<header className="GithubProfiles__SearchForm--header">
 					<p>{GITHUB_PROFILE_HEADER}</p>
 				</header>
 				<SearchForm setNewGithubUser={setNewGithubUser} errorText={errorText} />
 			</div>
-			<div className="GithubContainer">
-				<div className="GithubContainer__Wrapper">
-					<div className="GithubContainer__Avatar">
+			<div className="GithubProfiles__GithubContainer">
+				<div className="GithubProfiles__GithubContainer--Wrapper">
+					<div className="GithubProfiles__GithubContainer--Avatar">
 						{githubUser.login && (
 							<AvatarCard
 								login={githubUser.login}
@@ -100,8 +97,8 @@ const GithubProfile = () => {
 							/>
 						)}
 					</div>
-					<div className="GithubContainer__Repositories">
-						<div className="GithubContainer__Repositories--firstRow">
+					<div className="GithubProfiles__GithubContainer--Repositories">
+						<div className="GithubProfiles__GithubContainer--RepositoriesFirstRow">
 							{githubTopRepositories[0] && githubTopRepositories[0].id && (
 								<ProjectCard repository={githubTopRepositories[0]} />
 							)}
@@ -109,7 +106,7 @@ const GithubProfile = () => {
 								<ProjectCard repository={githubTopRepositories[1]} />
 							)}
 						</div>
-						<div className="GithubContainer__Repositories--secondRow">
+						<div className="GithubProfiles__GithubContainer--RepositoriesSecondRow">
 							{githubTopRepositories[2] && githubTopRepositories[2].id && (
 								<ProjectCard repository={githubTopRepositories[2]} />
 							)}
@@ -120,7 +117,7 @@ const GithubProfile = () => {
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 
