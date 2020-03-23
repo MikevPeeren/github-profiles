@@ -13,10 +13,12 @@ import ProjectCard from './ProjectCard';
 import AvatarCard from './AvatarCard';
 
 // Api
+// Changed GraphQL to Rest Api as authenticating through Github Pages with React is too complex for this Project.
 // import { searchForGithubProfile, searchForGithubTopRepositories } from '../api/GithubApiGraphQL';
 import { searchForGithubProfile, searchForGithubTopRepositories } from '../api/GithubApiRest';
 
 // Types
+// Changed GraphQL to Rest Api as authenticating through Github Pages with React is too complex for this Project.
 // import { GITHUB_USER, GITHUB_TOP_REPOSITORIES } from '../types/GithubGraphQL.types';
 import { GITHUB_USER, GITHUB_TOP_REPOSITORIES } from '../types/GithubRestApi.types';
 
@@ -33,7 +35,6 @@ const GithubProfile = () => {
 		async function searchForGitHubUser() {
 			try {
 				const result = await searchForGithubProfile(inputFieldGitHubUser);
-				console.log(result);
 				setGithubUser(result);
 				setErrorText('');
 			} catch (error) {
@@ -43,9 +44,6 @@ const GithubProfile = () => {
 
 		if (inputFieldGitHubUser.length !== 0) searchForGitHubUser();
 	}, [inputFieldGitHubUser]);
-
-	console.log(githubUser);
-	console.log(githubTopRepositories);
 
 	useEffect(() => {
 		/**
