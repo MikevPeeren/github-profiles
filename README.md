@@ -22,4 +22,4 @@ Search through the GitHub API to retrieve user information when a valid username
 To get the data you need to communicate with GitHub API. you can either
 
 -   [Read Docs](https://developer.github.com/v3/)
--   [Check API directly](https://api.github.com/users/chaharshivam)
+-   [Check API directly](https://api.github.com/users/mikevpeeren)
