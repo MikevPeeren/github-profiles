@@ -14,8 +14,8 @@ Search through the GitHub API to retrieve user information when a valid username
 
 ## Bonus features
 
--   [ ] User can toggle dark/light mode
--   [ ] Selected mode should persist when user comes back to the app again
+-   [x] ~User can toggle dark/light mode~
+-   [x] ~Selected mode should persist when user comes back to the app again~
 
 ## Useful links and resources
 

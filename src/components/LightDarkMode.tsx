@@ -1,5 +1,5 @@
 // React
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocalStorage } from 'beautiful-react-hooks';
 
 // CSS
@@ -9,14 +9,20 @@ import './LightDarkMode.scss';
 import { GiSunflower, GiEvilMoon } from 'react-icons/gi';
 
 const LightDarkMode = () => {
-	const [lightMode, setLightMode] = useLocalStorage('LightMode', true);
+	const [lightMode, setLightMode] = useLocalStorage('LightMode', 'light-mode');
+
+	useEffect(() => {
+		changeLightDarkMode(lightMode);
+	}, [lightMode]);
 
 	const handleLightDarkMode = () => {
-		setLightMode(!lightMode);
+		setLightMode(lightMode === 'dark-mode' ? 'light-mode' : 'dark-mode');
+	};
+
+	const changeLightDarkMode = (lightMode: string) => {
 		const body = document.body;
-		const currentClass = body && body.className;
 		if (body && body.className) {
-			body.className = currentClass === 'dark-mode' ? 'light-mode' : 'dark-mode';
+			body.className = lightMode;
 		}
 	};
 
