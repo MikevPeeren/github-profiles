@@ -13,36 +13,17 @@ import ProjectCard from './ProjectCard';
 import AvatarCard from './AvatarCard';
 
 // Api
-import { searchForGithubProfile, searchForGithubTopRepositories } from '../api/GithubApi';
+// import { searchForGithubProfile, searchForGithubTopRepositories } from '../api/GithubApiGraphQL';
+import { searchForGithubProfile, searchForGithubTopRepositories } from '../api/GithubApiRest';
+
+// Types
+// import { GITHUB_USER, GITHUB_TOP_REPOSITORIES } from '../types/GithubGraphQL.types';
+import { GITHUB_USER, GITHUB_TOP_REPOSITORIES } from '../types/GithubRestApi.types';
 
 const GithubProfile = () => {
 	const [inputFieldGitHubUser, setInputFieldGitHubUser] = useState('');
-	const [githubUser, setGithubUser] = useState({
-		login: '',
-		avatarUrl: '',
-		bio: '',
-		repositories: {
-			totalCount: 0,
-		},
-		watching: {
-			totalCount: 0,
-		},
-	});
-	const [githubTopRepositories, setGithubTopRepositories] = useState([
-		{
-			node: {
-				id: '',
-				createdAt: '',
-				name: '',
-				description: '',
-				url: '',
-				forkCount: 0,
-				stargazers: {
-					totalCount: 0,
-				},
-			},
-		},
-	]);
+	const [githubUser, setGithubUser] = useState(GITHUB_USER);
+	const [githubTopRepositories, setGithubTopRepositories] = useState(GITHUB_TOP_REPOSITORIES);
 	const [errorText, setErrorText] = useState('');
 
 	useEffect(() => {
@@ -52,6 +33,7 @@ const GithubProfile = () => {
 		async function searchForGitHubUser() {
 			try {
 				const result = await searchForGithubProfile(inputFieldGitHubUser);
+				console.log(result);
 				setGithubUser(result);
 				setErrorText('');
 			} catch (error) {
@@ -61,6 +43,9 @@ const GithubProfile = () => {
 
 		if (inputFieldGitHubUser.length !== 0) searchForGitHubUser();
 	}, [inputFieldGitHubUser]);
+
+	console.log(githubUser);
+	console.log(githubTopRepositories);
 
 	useEffect(() => {
 		/**
@@ -103,24 +88,24 @@ const GithubProfile = () => {
 						{githubUser.login && (
 							<AvatarCard
 								login={githubUser.login}
-								avatarUrl={githubUser.avatarUrl}
+								avatarUrl={githubUser.avatar_url}
 								bio={githubUser.bio}
-								repositoriesCount={githubUser.repositories.totalCount}
-								watchingCount={githubUser.watching.totalCount}
+								repositoriesCount={githubUser.public_repos}
+								watchingCount={githubUser.followers}
 							/>
 						)}
 					</div>
 					<div className="GithubContainer__Repositories">
 						{/* TODO: find a better way to do this. */}
-						{githubTopRepositories[0].node.id && (
+						{githubTopRepositories[0].id && (
 							<>
 								<div className="GithubContainer__Repositories--firstRow">
-									<ProjectCard repository={githubTopRepositories[0].node} />
-									<ProjectCard repository={githubTopRepositories[1].node} />
+									<ProjectCard repository={githubTopRepositories[0]} />
+									<ProjectCard repository={githubTopRepositories[1]} />
 								</div>
 								<div className="GithubContainer__Repositories--secondRow">
-									<ProjectCard repository={githubTopRepositories[2].node} />
-									<ProjectCard repository={githubTopRepositories[3].node} />
+									<ProjectCard repository={githubTopRepositories[2]} />
+									<ProjectCard repository={githubTopRepositories[3]} />
 								</div>
 							</>
 						)}

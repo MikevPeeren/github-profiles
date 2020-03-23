@@ -16,10 +16,8 @@ interface ProjectCardProps {
 		name?: string;
 		description?: string;
 		url?: string;
-		forkCount?: number;
-		stargazers?: {
-			totalCount: number;
-		};
+		forks_count?: number;
+		stargazers_count?: number;
 	};
 }
 
@@ -32,10 +30,10 @@ const ProjectCard: React.FC<ProjectCardProps> = (props) => {
 				<Card.Title>{repository.name}</Card.Title>
 				<Card.Subtitle className="mb-2 text-muted">
 					<span>
-						<GoGitBranch /> {repository.forkCount}
+						<GoGitBranch /> {repository.forks_count}
 					</span>
 					<span className="ProjectCard__CardSubtitle--span">
-						<GoStar /> {repository.stargazers?.totalCount}
+						<GoStar /> {repository.stargazers_count}
 					</span>
 				</Card.Subtitle>
 				<Card.Text>{repository.description}</Card.Text>
