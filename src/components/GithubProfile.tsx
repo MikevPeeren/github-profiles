@@ -38,6 +38,9 @@ const GithubProfile = () => {
 				setGithubUser(result);
 				setErrorText('');
 			} catch (error) {
+				console.log(error);
+				setGithubUser(GITHUB_USER);
+				setErrorText('');
 				setErrorText(error.message);
 			}
 		}
@@ -56,6 +59,9 @@ const GithubProfile = () => {
 				setGithubTopRepositories(result);
 				setErrorText('');
 			} catch (error) {
+				console.log(error);
+				setGithubTopRepositories(GITHUB_TOP_REPOSITORIES);
+				setErrorText('');
 				setErrorText(error.message);
 			}
 		}

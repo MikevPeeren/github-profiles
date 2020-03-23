@@ -18,8 +18,13 @@ export const searchForGithubProfile = async (inputFieldGitHubUser: string) => {
 			return result.data;
 		})
 		.catch((error) => {
+			console.log(error.response);
 			// Up Up and Away
-			throw error;
+			if (error.response && error.response.status === 404) throw new Error('User could not be Found!');
+			// Up Up and Away
+			if (error.response && error.response.status === 403) throw new Error('API Rate Limit has been reached!');
+			// Up Up and Away
+			else throw error;
 		});
 };
 
@@ -43,7 +48,12 @@ export const searchForGithubTopRepositories = async (inputFieldGitHubUser: strin
 			return result.data;
 		})
 		.catch((error) => {
+			console.log(error.response);
 			// Up Up and Away
-			throw error;
+			if (error.response && error.response.status === 404) throw new Error('User could not be Found!');
+			// Up Up and Away
+			if (error.response && error.response.status === 403) throw new Error('API Rate Limit has been reached!');
+			// Up Up and Away
+			else throw error;
 		});
 };
