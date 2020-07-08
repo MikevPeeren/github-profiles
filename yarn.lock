@@ -2635,10 +2635,10 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-beautiful-react-hooks@^0.26.0:
-  version "0.26.0"
-  resolved "https://registry.yarnpkg.com/beautiful-react-hooks/-/beautiful-react-hooks-0.26.0.tgz#448e4fe2a62568224f87ed8cc35a673f8acc8b59"
-  integrity sha512-STsTaACYl4h1Dz7wNrip8Ft+ObgvUPWtObGUef89GZG2b3ttjh3M8Dr/H04ahtKknMMpAgdeQOj0jmk+gYM/kQ==
+beautiful-react-hooks@^0.27.0:
+  version "0.27.0"
+  resolved "https://registry.yarnpkg.com/beautiful-react-hooks/-/beautiful-react-hooks-0.27.0.tgz#1b4accff913a56fb51a0164ea93efbdbfeb7e0f0"
+  integrity sha512-FtsfzZ2PA/S8xTd14Y9/ufzsgL+OTkF6Mjcy1AoDVHoYf1RtIx0kj0cqNLHWnqXgzJzs08PwtF3ZHauyUXWcqw==
   dependencies:
     lodash.debounce "^4.0.8"
     lodash.throttle "^4.1.1"
