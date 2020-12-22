@@ -12,7 +12,7 @@
 		"@types/node-sass": "^4.11.1",
 		"@types/react": "^17.0.0",
 		"@types/react-dom": "^17.0.0",
-		"axios": "^0.21.0",
+		"axios": "^0.21.1",
 		"beautiful-react-hooks": "^0.31.0",
 		"bootstrap": "^4.5.3",
 		"node-sass": "^5.0.0",
